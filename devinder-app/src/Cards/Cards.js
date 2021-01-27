@@ -14,6 +14,10 @@ function Cards() {
         {
             name: "Tanjiro",
             url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVxRfyAFo23Rd65JxPCSf3I2GVnSGe4YNAiQ&usqp=CAU"
+        },
+        {
+            name: "Saitama",
+            url: "https://i.pinimg.com/originals/87/86/73/878673f78c223afdfe76e62b26bb76d1.png"
         }
     ]);
 
