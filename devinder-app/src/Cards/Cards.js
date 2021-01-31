@@ -1,25 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import TinderCard from 'react-tinder-card';
+import axios from '../axios';
 
 import './Cards.css';
 
 function Cards() {
     
-    const [persons, setPersons] = useState([
-        {
-            name: "Saitama",
-            url: "https://i.pinimg.com/originals/87/86/73/878673f78c223afdfe76e62b26bb76d1.png"
-        },
-        {
-            name: "Tanjiro",
-            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVxRfyAFo23Rd65JxPCSf3I2GVnSGe4YNAiQ&usqp=CAU"
-        },
-        {
-            name: "Saitama",
-            url: "https://i.pinimg.com/originals/87/86/73/878673f78c223afdfe76e62b26bb76d1.png"
-        }
-    ]);
+    const [persons, setPersons] = useState([]);
+
+    const fetchData = async () => {
+        const req = await axios.get('/devinder/card');
+
+        setPersons(req.data);
+        console.log(' ** TEST persons ** ', req.data);
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     const swiped = (direction, nameToDelete) => {
         console.log(' ** removing ** ', nameToDelete)
@@ -32,17 +31,17 @@ function Cards() {
     return (
         <div className="cards">
             <div className="cards__container">
-            {persons.map((person, index) => (
+            {persons.map(person => (
                 <>
                 <TinderCard 
                     className="swipe"
-                    key={index}
+                    key={person._id}
                     preventSwipe={["up", "down"]}
                     onSwipe={(dir) => swiped(dir, person.name)}
                     onCardLeftScreen={() => outOfFrame(person.name)}
                 >
                     <div
-                        style={{ backgroundImage: `url(${person.url})` }}
+                        style={{ backgroundImage: `url(${person.imageUrl})` }}
                         className="card"
                     >
                         <h3>{person.name}</h3>
