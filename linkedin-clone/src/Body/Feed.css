@@ -36,3 +36,10 @@
 .feed__input > form > button {
   display: none;
 }
+
+.feed__inputOptions {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -3,6 +3,7 @@ import './App.css';
 
 import Header from './Header/Header';
 import SideBar from './Body/SideBar';
+import Feed from './Body/Feed';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <div className="app__body">
         <SideBar />
+        <Feed />
       </div>
     </div>
   );
