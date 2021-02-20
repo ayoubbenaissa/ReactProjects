@@ -8,6 +8,7 @@
 .inputOption:hover {
   background-color: #e6e6e6;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .inputOption h4 {
