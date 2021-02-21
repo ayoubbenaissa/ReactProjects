@@ -1,6 +1,7 @@
 import React from 'react';
 
 import InputOption from './InputOption';
+import Post from './Post';
 
 import CreateIcon from '@material-ui/icons/Create';
 import ImageIcon from '@material-ui/icons/Image';
@@ -17,7 +18,7 @@ function Feed() {
                 <div className="feed__input">
                     <CreateIcon />
                     <form>
-                        <input type="text"/>
+                        <input type="text" placeholder="Start a post"/>
                         <button type="submit">Send</button>
                     </form>
                 </div>
@@ -28,6 +29,7 @@ function Feed() {
                     <InputOption Icon={CalendarViewDayIcon} title="write article" color="#7FC15E"/>
                 </div>
             </div>
+            <Post name="Saitama" description="test" content="content" />
         </div>
     )
 }
