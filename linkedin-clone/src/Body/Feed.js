@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+import { useSelector } from 'react-redux';
+import { selectUser } from '../features/userSlice';
+
 import { db } from '../firebase';
 import firebase from 'firebase';
 
@@ -18,6 +21,8 @@ function Feed() {
     const [posts, setPosts] = useState([]);
     const [content, setContent] = useState('');
 
+    const user = useSelector(selectUser);
+
     useEffect(() => {
         db.collection("posts")
         .orderBy('timestamp', 'desc')
@@ -35,12 +40,13 @@ function Feed() {
         e.preventDefault();
         // add post to DB:
         db.collection("posts").add({
-            name: 'test user',
-            description: 'test description',
+            name: user.displayName || 'linkedIn user',
+            description: user.email || 'email',
             content: content,
-            photoUrl: '',
+            photoUrl: user.photoUrl || '',
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
+        console.log(' ** post added ** ');
         setContent('');
     };
 

@@ -11,6 +11,7 @@ import SendOutlinedIcon from '@material-ui/icons/SendOutlined';
 import './Post.css';
 
 function Post({ name, description, content, photoUrl}) {
+
     return (
         <div className="post">
             <div className="post__header">
