@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
+import FlipMove from 'react-flip-move';
 
 import { db } from '../firebase';
 import firebase from 'firebase';
@@ -67,7 +68,9 @@ function Feed() {
                     <InputOption Icon={CalendarViewDayIcon} title="write article" color="#7FC15E"/>
                 </div>
             </div>
+            <FlipMove>
             {posts.map(({ id, data: {name, description, content, photoUrl}}) => (<Post key={id} name={name} description={description} content={content} photoUrl={photoUrl}/>))}
+            </FlipMove>
         </div>
     )
 }
