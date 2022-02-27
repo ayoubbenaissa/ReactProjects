@@ -45,3 +45,5 @@ export const animesSlice = createSlice({
 });
 
 export const selectAllAnimes = (state) => state.animes.allAnimes;
+
+export default animesSlice.reducer;
