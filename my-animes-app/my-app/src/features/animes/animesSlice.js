@@ -5,21 +5,21 @@ import { getAllAnimes, getAnime, updateAnime, deleteAnime } from "./animesAPI";
 const initialState = {
   allAnimes: [],
   currentAnime: {},
-  allAnimesReady: "loading",
-  currentAnimeReady: "loading",
+  allAnimesReady: "",
+  currentAnimeReady: "",
   error: null,
 };
 
 export const getAllAnimesAction = createAsyncThunk(
   "animes/getAllAnimes",
-  async (_, reject) => {
+  async () => {
     try {
       const allAnimes = await getAllAnimes(),
-        allAnimesData = allAnimes.json();
+        allAnimesData = allAnimes.data;
 
       return allAnimesData;
     } catch (err) {
-      reject(err.message);
+      Promise.reject(new Error(err.message));
     }
   }
 );

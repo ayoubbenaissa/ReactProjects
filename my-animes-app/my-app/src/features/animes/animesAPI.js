@@ -1,6 +1,15 @@
 import axios from "axios";
 
-const getAllAnimes = async () => {};
+const backendRootEndpoint = "http://localhost:8001";
+
+const getAllAnimes = async () => {
+  try {
+    const allAnimesDB = await axios.get(`${backendRootEndpoint}/animes`);
+    return allAnimesDB;
+  } catch (err) {
+    return err;
+  }
+};
 
 const getAnime = async (animeId) => {};
 

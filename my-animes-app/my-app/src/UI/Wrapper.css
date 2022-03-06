@@ -1,0 +1,11 @@
+.wrapper {
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  height: fit-content;
+}
+
+.wrapper:hover {
+  cursor: pointer;
+  background-color: #e4e6eb;
+}

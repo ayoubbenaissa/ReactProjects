@@ -5,6 +5,8 @@ import {
   selectAllAnimes,
 } from "./features/animes/animesSlice";
 
+import AnimesList from "./features/animes/AnimesList";
+
 import "./App.css";
 
 function App() {
@@ -12,10 +14,15 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(" ** TEST allAnimes ** ", allAnimes);
+    dispatch(getAllAnimesAction());
   }, []);
 
-  return <div>My Animes App</div>;
+  return (
+    <div className='animes-app'>
+      <h2>My Animes App</h2>
+      <AnimesList animes={allAnimes} />
+    </div>
+  );
 }
 
 export default App;

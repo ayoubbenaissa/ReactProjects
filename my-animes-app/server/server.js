@@ -34,6 +34,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/animes", async (req, res) => {
+  console.log(" ** getting animes ** ");
   try {
     const myAnimes = await AnimeModel.find();
     res.json(myAnimes);
@@ -54,8 +55,6 @@ app.post("/animes", async (req, res) => {
   }
 });
 
-app.post('/animes/:id', async (req, res) => {
-    
-});
+app.post("/animes/:id", async (req, res) => {});
 
 app.listen(PORT, () => console.log(`listening on localhost: ${PORT}`));

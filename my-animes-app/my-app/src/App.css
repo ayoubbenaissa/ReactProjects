@@ -1,0 +1,12 @@
+* {
+  background-color: #f4f2d5;
+}
+
+h2 {
+  text-align: center;
+}
+
+h2:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
